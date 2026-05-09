@@ -4,6 +4,7 @@
 build/
 node_modules/
 results/
+.jmh-matrix/
 jcstress-results-*.bin.gz
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/

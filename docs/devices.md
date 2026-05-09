@@ -8,12 +8,15 @@ snapshot, then use cross-device rows only as capacity context.
 
 | Snapshot | Device | OS And Runtime | Native Placement | Artifact Notes |
 | --- | --- | --- | --- | --- |
+| [Java release target matrix](benchmark-results/java-release-target-matrix/README.md) | AMD Ryzen 9 9950X and Intel Xeon E5-2699A v4 | Ubuntu/Linux, Temurin, Azul Zulu, Oracle GraalVM, and OpenJDK 26 | Not the focus of this run | Compares Java 17, 21, and 25 classfile/API targets for fixed-path JMH benchmarks. |
 | [2026-05-02 per-graph refresh](benchmark-results/2026-05-02-per-graph-refresh/README.md) | Intel Core i9-14900HX, 16 cores / 32 threads, 1 NUMA node | Ubuntu LTS userspace under WSL2 Linux `6.6.87.2-microsoft-standard-WSL2`, OpenJDK 21.0.10 | Native library loaded for Lattice strict-topology and explicit CPU-pinned latency rows | Current public figures and raw `*-2026-05-02` JSON/log artifacts. |
 | [2026-04-29 v1.0.0 baseline](benchmark-results/v1.0.0-baseline/README.md) | Intel i7-7700 @ 3.60 GHz, 4 cores / 8 threads, 1 NUMA node | Ubuntu Linux, OpenJDK 21.0.10 | Not loaded; placement rows use `pinning=false` | Historical publication baseline retained for audit history. |
 
-Both snapshots use JMH 1.36, Java 21, `-Xms2g -Xmx2g`,
-`-XX:+AlwaysPreTouch`, and `-XX:+UseParallelGC`. The 2026-05-02 run also uses
-`-XX:+UnlockDiagnosticVMOptions`.
+The 2026-05-02 and 2026-04-29 snapshots use JMH 1.36, Java 21,
+`-Xms2g -Xmx2g`, `-XX:+AlwaysPreTouch`, and `-XX:+UseParallelGC`. The
+2026-05-02 run also uses `-XX:+UnlockDiagnosticVMOptions`. The Java release
+target matrix uses JMH 1.36, `-Xms2g -Xmx2g -XX:+AlwaysPreTouch`, and compares
+classfile/API targets within the same runtime.
 
 ## Headline Throughput By Device
 
